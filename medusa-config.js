@@ -72,9 +72,9 @@ const modules = {
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
-    database_extra: { ssl: { rejectUnauthorized: false } },
+    database_extra: {},
     database_driver_options: {
-      connection: { ssl: { rejectUnauthorized: false } },
+      connection: {},
     },
     http: {
       storeCors: process.env.STORE_CORS,
