@@ -71,7 +71,7 @@ const modules = {
 
 module.exports = defineConfig({
   admin: {
-    backendUrl: process.env.MEDUSA_BACKEND_URL || 'https://solace-medusa-starter-api-production.up.railway.app'
+    backendUrl: process.env.MEDUSA_BACKEND_URL || 'https://solace-medusa-starter-api-production.up.railway.app',
     disable: process.env.DISABLE_MEDUSA_ADMIN === 'true'
   },
   projectConfig: {
