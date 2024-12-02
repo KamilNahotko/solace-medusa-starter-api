@@ -322,18 +322,19 @@ export default async function seedDemoData({ container }: ExecArgs) {
     return [id];
   };
 
-
   const generateAdditionalProducts = (categoryResult, defaultSalesChannel) => {
     const products = [];
     const categories = ['Shirts', 'Sweatshirts', 'Pants', 'Merch'];
     const sizes = ['S', 'M', 'L', 'XL'];
-  
-    for (let i = 0; i < 5000; i++) { // 4996, bo już masz 4 produkty
+
+    for (let i = 0; i < 500; i++) {
       const categoryName = categories[Math.floor(Math.random() * categories.length)];
-      
+
       products.push({
         title: `Medusa Product ${i + 1}`,
-        category_ids: getCategoryIdsByName(categoryName as 'Shirts' | 'Sweatshirts' | 'Pants' | 'Merch'),
+        category_ids: getCategoryIdsByName(
+          categoryName as 'Shirts' | 'Sweatshirts' | 'Pants' | 'Merch'
+        ),
         description: `Dodatkowy produkt ${i + 1} z kategorii ${categoryName}`,
         handle: `product-${i + 1}`,
         weight: 400,
@@ -349,7 +350,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
             values: sizes
           }
         ],
-        variants: sizes.map(size => ({
+        variants: sizes.map((size) => ({
           title: size,
           sku: `PRODUCT-${i + 1}-${size}`,
           options: {
@@ -373,13 +374,12 @@ export default async function seedDemoData({ container }: ExecArgs) {
         ]
       });
     }
-  
+
     return products;
   };
 
   const additionalProducts = generateAdditionalProducts(categoryResult, defaultSalesChannel);
 
-  
   await createProductsWorkflow(container).run({
     input: {
       products: [

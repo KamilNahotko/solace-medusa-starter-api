@@ -24,7 +24,8 @@
     "db:rollback": "medusa db:rollback",
     "db:sync-links": "medusa db:sync-links",
     "db:migrate": "medusa db:migrate",
-    "db:seed": "medusa exec ./src/scripts/seed.ts"
+    "db:seed": "medusa exec ./src/scripts/seed.ts",
+    "db:seed:products": "medusa exec ./src/scripts/seed-products.ts"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.0.0",
@@ -59,5 +60,6 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "yarn@3.2.3+sha512.f26f951f67de0c6a33ee381e5ff364709c87e70eb5e65c694e4facde3512f1fa80b8679e6ba31ce7d340fbb46f08dd683af9457e240f25a204be7427940d767e"
 }
